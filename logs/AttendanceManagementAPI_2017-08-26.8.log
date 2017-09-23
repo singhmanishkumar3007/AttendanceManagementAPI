@@ -1,0 +1,259 @@
+2017-08-26 22:57:24,890 DEBUG o.s.web.servlet.DispatcherServlet - Initializing servlet 'dispatcherServlet'
+2017-08-26 22:57:24,893 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-08-26 22:57:24,893 INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-08-26 22:57:24,893 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'multipartResolver'
+2017-08-26 22:57:24,893 DEBUG o.s.web.servlet.DispatcherServlet - Using MultipartResolver [org.springframework.web.multipart.support.StandardServletMultipartResolver@50b38342]
+2017-08-26 22:57:24,893 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+2017-08-26 22:57:24,895 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,899 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,899 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,899 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+2017-08-26 22:57:24,901 DEBUG o.s.web.servlet.DispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@16218e45]
+2017-08-26 22:57:24,901 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+2017-08-26 22:57:24,901 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+2017-08-26 22:57:24,909 DEBUG o.s.web.servlet.DispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@47432023]
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'faviconHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'welcomePageHandlerMapping'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+2017-08-26 22:57:24,909 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+2017-08-26 22:57:24,911 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'errorAttributes'
+2017-08-26 22:57:24,911 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+2017-08-26 22:57:24,911 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+2017-08-26 22:57:24,911 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+2017-08-26 22:57:24,916 DEBUG o.s.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@670aac2d]
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameViewResolver'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultViewResolver'
+2017-08-26 22:57:24,916 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+2017-08-26 22:57:24,919 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+2017-08-26 22:57:24,919 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,924 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,924 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2017-08-26 22:57:24,926 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+2017-08-26 22:57:24,926 DEBUG o.s.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@2033455]
+2017-08-26 22:57:24,926 DEBUG o.s.web.servlet.DispatcherServlet - Published WebApplicationContext of servlet 'dispatcherServlet' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcherServlet]
+2017-08-26 22:57:24,926 INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+2017-08-26 22:57:24,926 DEBUG o.s.web.servlet.DispatcherServlet - Servlet 'dispatcherServlet' configured successfully
+2017-08-26 22:57:24,934 DEBUG o.s.b.w.f.OrderedRequestContextFilter - Bound request context to thread: org.apache.catalina.connector.RequestFacade@740fa4ef
+2017-08-26 22:57:24,936 DEBUG o.s.web.servlet.DispatcherServlet - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/easybusiness/biometric/getAttendanceByUserIdAndDate/7010/15-08-2017/16-08-2017]
+2017-08-26 22:57:24,939 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /easybusiness/biometric/getAttendanceByUserIdAndDate/7010/15-08-2017/16-08-2017
+2017-08-26 22:57:24,946 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<java.util.List<com.easybusiness.attendancemanagement.dto.BiometricTransactionDTO>> com.easybusiness.attendancemanagement.services.biometrictransaction.BiometricTransactionServiceImpl.getAttendanceByUserIdAndAttendanceDateRange(java.lang.String,java.lang.String,java.lang.String)]
+2017-08-26 22:57:24,946 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'biometricTransactionServiceImpl'
+2017-08-26 22:57:24,946 DEBUG o.s.web.servlet.DispatcherServlet - Last-Modified value for [/easybusiness/biometric/getAttendanceByUserIdAndDate/7010/15-08-2017/16-08-2017] is: -1
+2017-08-26 22:57:24,946 DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2017-08-26 22:57:24,974 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'transactionManager'
+2017-08-26 22:57:24,976 DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@390a3ce1] for JPA transaction
+2017-08-26 22:57:24,976 DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.easybusiness.attendancepersistence.user.UserDao.findUserById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2017-08-26 22:57:25,039 DEBUG o.s.jdbc.datasource.DataSourceUtils - Setting JDBC Connection [ProxyConnection[PooledConnection[oracle.jdbc.driver.T4CConnection@692e028d]]] read-only
+2017-08-26 22:57:25,041 DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@522ad1e5]
+2017-08-26 22:57:25,071 DEBUG org.hibernate.SQL - 
+    /* select
+        generatedAlias0 
+    from
+        User as generatedAlias0 
+    where
+        generatedAlias0.id=:param0 */ select
+            user0_.user_id as user_id1_10_,
+            user0_.altr_email as altr_email2_10_,
+            user0_.city as city3_10_,
+            user0_.country as country4_10_,
+            user0_.dob as dob5_10_,
+            user0_.department as department26_10_,
+            user0_.designation as designation27_10_,
+            user0_.email as email6_10_,
+            user0_.end_date as end_date7_10_,
+            user0_.father as father8_10_,
+            user0_.first_name as first_name9_10_,
+            user0_.from_date as from_date10_10_,
+            user0_.gender as gender11_10_,
+            user0_.is_enable as is_enable12_10_,
+            user0_.last_name as last_name13_10_,
+            user0_.mobile as mobile14_10_,
+            user0_.mod_by as mod_by15_10_,
+            user0_.mod_dt as mod_dt16_10_,
+            user0_.organization as organization28_10_,
+            user0_.passport as passport17_10_,
+            user0_.password as password18_10_,
+            user0_.perm_addr as perm_addr19_10_,
+            user0_.spouse as spouse20_10_,
+            user0_.state as state21_10_,
+            user0_.type_of_emp as type_of_emp22_10_,
+            user0_.user_img as user_img23_10_,
+            user0_.user_login_id as user_login_id24_10_,
+            user0_.zip as zip25_10_ 
+        from
+            user_details user0_ 
+        where
+            user0_.user_id=?
+2017-08-26 22:57:25,129 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [7010]
+2017-08-26 22:57:25,161 DEBUG org.hibernate.SQL - 
+    select
+        department0_.dept_id as dept_id1_3_0_,
+        department0_.dept_name as dept_name2_3_0_,
+        department0_.org_id as org_id3_3_0_,
+        organizati1_.org_id as org_id1_7_1_,
+        organizati1_.org_location as org_location2_7_1_,
+        organizati1_.org_name as org_name3_7_1_ 
+    from
+        department department0_ 
+    left outer join
+        organization organizati1_ 
+            on department0_.org_id=organizati1_.org_id 
+    where
+        department0_.dept_id=?
+2017-08-26 22:57:25,164 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2017-08-26 22:57:25,174 DEBUG org.hibernate.SQL - 
+    select
+        designatio0_.id as id1_4_0_,
+        designatio0_.desig as desig2_4_0_ 
+    from
+        designation designatio0_ 
+    where
+        designatio0_.id=?
+2017-08-26 22:57:25,174 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [5]
+2017-08-26 22:57:25,179 DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2017-08-26 22:57:25,179 DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@390a3ce1]
+2017-08-26 22:57:25,179 DEBUG o.s.jdbc.datasource.DataSourceUtils - Resetting read-only flag of JDBC Connection [ProxyConnection[PooledConnection[oracle.jdbc.driver.T4CConnection@692e028d]]]
+2017-08-26 22:57:25,179 DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2017-08-26 22:57:25,179 DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@390a3ce1] for JPA transaction
+2017-08-26 22:57:25,179 DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.easybusiness.attendancepersistence.biometricytransaction.BiometricTransactionDao.findBiometricTransactionByUserAndDateRange]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2017-08-26 22:57:25,181 DEBUG o.s.jdbc.datasource.DataSourceUtils - Setting JDBC Connection [ProxyConnection[PooledConnection[oracle.jdbc.driver.T4CConnection@692e028d]]] read-only
+2017-08-26 22:57:25,181 DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5f8923dd]
+2017-08-26 22:57:25,196 DEBUG o.s.d.r.c.s.TransactionalRepositoryProxyPostProcessor$CustomAnnotationTransactionAttributeSource - Adding transactional method 'findAll' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2017-08-26 22:57:25,196 DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'transactionManager'
+2017-08-26 22:57:25,199 DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@390a3ce1] for JPA transaction
+2017-08-26 22:57:25,199 DEBUG o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2017-08-26 22:57:25,216 DEBUG org.hibernate.SQL - 
+    /* select
+        generatedAlias0 
+    from
+        BiometricTransaction as generatedAlias0 
+    inner join
+        generatedAlias0.user as generatedAlias1 
+    where
+        (
+            generatedAlias0.inDate between :param0 and :param1 
+        ) 
+        and (
+            generatedAlias1.id in (
+                7010L
+            ) 
+        ) 
+    order by
+        generatedAlias0.inDate asc */ select
+            biometrict0_.tran_id as tran_id1_2_,
+            biometrict0_.first_in_time as first_in_time2_2_,
+            biometrict0_.in_date as in_date3_2_,
+            biometrict0_.last_out_time as last_out_time4_2_,
+            biometrict0_.total_time_on_floor as total_time_on_floo5_2_,
+            biometrict0_.user_id as user_id7_2_,
+            biometrict0_.user_device_location as user_device_locati6_2_,
+            biometrict0_.user_device_id as user_device_id8_2_ 
+        from
+            biometric_transaction biometrict0_ 
+        inner join
+            user_details user1_ 
+                on biometrict0_.user_id=user1_.user_id 
+        where
+            (
+                biometrict0_.in_date between ? and ?
+            ) 
+            and (
+                user1_.user_id in (
+                    7010
+                )
+            ) 
+        order by
+            biometrict0_.in_date asc
+2017-08-26 22:57:25,216 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [DATE] - [2017-08-15]
+2017-08-26 22:57:25,219 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [DATE] - [2017-08-16]
+2017-08-26 22:57:25,224 DEBUG org.hibernate.SQL - 
+    select
+        userdevice0_.id as id1_11_0_,
+        userdevice0_.created_by as created_by2_11_0_,
+        userdevice0_.created_on as created_on3_11_0_,
+        userdevice0_.user_device_id as user_device_id4_11_0_,
+        userdevice0_.mod_by as mod_by5_11_0_,
+        userdevice0_.mod_on as mod_on6_11_0_,
+        userdevice0_.user_id as user_id7_11_0_,
+        user1_.user_id as user_id1_10_1_,
+        user1_.altr_email as altr_email2_10_1_,
+        user1_.city as city3_10_1_,
+        user1_.country as country4_10_1_,
+        user1_.dob as dob5_10_1_,
+        user1_.department as department26_10_1_,
+        user1_.designation as designation27_10_1_,
+        user1_.email as email6_10_1_,
+        user1_.end_date as end_date7_10_1_,
+        user1_.father as father8_10_1_,
+        user1_.first_name as first_name9_10_1_,
+        user1_.from_date as from_date10_10_1_,
+        user1_.gender as gender11_10_1_,
+        user1_.is_enable as is_enable12_10_1_,
+        user1_.last_name as last_name13_10_1_,
+        user1_.mobile as mobile14_10_1_,
+        user1_.mod_by as mod_by15_10_1_,
+        user1_.mod_dt as mod_dt16_10_1_,
+        user1_.organization as organization28_10_1_,
+        user1_.passport as passport17_10_1_,
+        user1_.password as password18_10_1_,
+        user1_.perm_addr as perm_addr19_10_1_,
+        user1_.spouse as spouse20_10_1_,
+        user1_.state as state21_10_1_,
+        user1_.type_of_emp as type_of_emp22_10_1_,
+        user1_.user_img as user_img23_10_1_,
+        user1_.user_login_id as user_login_id24_10_1_,
+        user1_.zip as zip25_10_1_,
+        department2_.dept_id as dept_id1_3_2_,
+        department2_.dept_name as dept_name2_3_2_,
+        department2_.org_id as org_id3_3_2_,
+        organizati3_.org_id as org_id1_7_3_,
+        organizati3_.org_location as org_location2_7_3_,
+        organizati3_.org_name as org_name3_7_3_,
+        designatio4_.id as id1_4_4_,
+        designatio4_.desig as desig2_4_4_,
+        organizati5_.org_id as org_id1_7_5_,
+        organizati5_.org_location as org_location2_7_5_,
+        organizati5_.org_name as org_name3_7_5_ 
+    from
+        user_device_map userdevice0_ 
+    left outer join
+        user_details user1_ 
+            on userdevice0_.user_id=user1_.user_id 
+    left outer join
+        department department2_ 
+            on user1_.department=department2_.dept_id 
+    left outer join
+        organization organizati3_ 
+            on department2_.org_id=organizati3_.org_id 
+    left outer join
+        designation designatio4_ 
+            on user1_.designation=designatio4_.id 
+    left outer join
+        organization organizati5_ 
+            on user1_.organization=organizati5_.org_id 
+    where
+        userdevice0_.id=?
+2017-08-26 22:57:25,226 TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2017-08-26 22:57:25,231 DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2017-08-26 22:57:25,231 DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@390a3ce1]
+2017-08-26 22:57:25,234 DEBUG o.s.jdbc.datasource.DataSourceUtils - Resetting read-only flag of JDBC Connection [ProxyConnection[PooledConnection[oracle.jdbc.driver.T4CConnection@692e028d]]]
+2017-08-26 22:57:25,234 DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2017-08-26 22:57:25,304 DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [[BiometricIntegration [transactionId=1, userDeviceMap=UserDeviceMap [id=1, user=User [id=7010, userName=secured, firstName=Secured, fromDate=null, lastName=User, password=123, gender=male, dateOfBirth=1989-10-23, email=secured@sls.com, alternateEmail=secured@sls.com, mobile=8723126745, endDate=null, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], department=Department [id=1, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], deptName=IT], designation=Designation [id=5, desig=LEAD], typeOfEmployment=null, isEnabled=1, userImg=null, modifiedBy=null, modifiedOn=null, permAddr=KaliGhat, state=West Bengal, city=Kolkata, country=India, zip=700102, fatherName=A K Singh, spouseName=S Singh, passport=null], deviceId=1111, modifiedBy=null, modifiedOn=null, createdBy=null, createdOn=null], user=User [id=7010, userName=secured, firstName=Secured, fromDate=null, lastName=User, password=123, gender=male, dateOfBirth=1989-10-23, email=secured@sls.com, alternateEmail=secured@sls.com, mobile=8723126745, endDate=null, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], department=Department [id=1, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], deptName=IT], designation=Designation [id=5, desig=LEAD], typeOfEmployment=null, isEnabled=1, userImg=null, modifiedBy=null, modifiedOn=null, permAddr=KaliGhat, state=West Bengal, city=Kolkata, country=India, zip=700102, fatherName=A K Singh, spouseName=S Singh, passport=null], userDeviceLocation=Kolkata, inDate=2017-08-15, firstInTime=2017-08-15 09:54:15.922, lastOutTime=2017-08-15 18:54:42.887, totalTimeOnFloor=null], BiometricIntegration [transactionId=2, userDeviceMap=UserDeviceMap [id=1, user=User [id=7010, userName=secured, firstName=Secured, fromDate=null, lastName=User, password=123, gender=male, dateOfBirth=1989-10-23, email=secured@sls.com, alternateEmail=secured@sls.com, mobile=8723126745, endDate=null, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], department=Department [id=1, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], deptName=IT], designation=Designation [id=5, desig=LEAD], typeOfEmployment=null, isEnabled=1, userImg=null, modifiedBy=null, modifiedOn=null, permAddr=KaliGhat, state=West Bengal, city=Kolkata, country=India, zip=700102, fatherName=A K Singh, spouseName=S Singh, passport=null], deviceId=1111, modifiedBy=null, modifiedOn=null, createdBy=null, createdOn=null], user=User [id=7010, userName=secured, firstName=Secured, fromDate=null, lastName=User, password=123, gender=male, dateOfBirth=1989-10-23, email=secured@sls.com, alternateEmail=secured@sls.com, mobile=8723126745, endDate=null, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], department=Department [id=1, organization=Organization [id=1, orgName=SLS, orgLocation=Kolkata], deptName=IT], designation=Designation [id=5, desig=LEAD], typeOfEmployment=null, isEnabled=1, userImg=null, modifiedBy=null, modifiedOn=null, permAddr=KaliGhat, state=West Bengal, city=Kolkata, country=India, zip=700102, fatherName=A K Singh, spouseName=S Singh, passport=null], userDeviceLocation=Kolkata, inDate=2017-08-16, firstInTime=2017-08-16 08:55:29.395, lastOutTime=2017-08-16 19:55:40.544, totalTimeOnFloor=null]]] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@472719df]
+2017-08-26 22:57:25,304 DEBUG o.s.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2017-08-26 22:57:25,306 DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2017-08-26 22:57:25,306 DEBUG o.s.o.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2017-08-26 22:57:25,306 DEBUG o.s.web.servlet.DispatcherServlet - Successfully completed request
+2017-08-26 22:57:25,309 DEBUG o.s.b.w.f.OrderedRequestContextFilter - Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@740fa4ef
