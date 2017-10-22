@@ -81,6 +81,14 @@ public class ActivityServiceImpl implements ActivityService {
 
 	Activity activity = prepareActivityEntity(activityDTO);
 	activityDao.addActivity(activity);
+	Activity activityEntity = null;
+	try {
+	    activityEntity = activityDao.findActivityByActivityName(activityDTO.getActivityName());
+	    activityDTO.setId(activityEntity.getId());
+	} catch (Exception e) {
+	    LOGGER.error("exception while getting  new created activity by Name {} , {}", activityDTO.getActivityName(),
+		    e.getMessage());
+	}
 	return new ResponseEntity<ActivityDTO>(activityDTO, HttpStatus.CREATED);
     }
 

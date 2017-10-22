@@ -237,8 +237,9 @@ public class UserEffortServiceImpl implements UserEffortService {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
-	return new ResponseEntity<UserDeviceEffortDTO>(prepareUserDeviceEffortDTO(userDeviceEffortEntity),
-		HttpStatus.OK);
+	return (null == userDeviceEffortEntity ? null
+		: new ResponseEntity<UserDeviceEffortDTO>(prepareUserDeviceEffortDTO(userDeviceEffortEntity),
+			HttpStatus.OK));
     }
 
     @Override
@@ -261,8 +262,9 @@ public class UserEffortServiceImpl implements UserEffortService {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
-	return new ResponseEntity<UserDeviceEffortDTO>(prepareUserDeviceEffortDTO(userDeviceEffortEntity),
-		HttpStatus.OK);
+	return (null == userDeviceEffortEntity ? null
+		: new ResponseEntity<UserDeviceEffortDTO>(prepareUserDeviceEffortDTO(userDeviceEffortEntity),
+			HttpStatus.OK));
     }
 
     @Override
@@ -363,14 +365,14 @@ public class UserEffortServiceImpl implements UserEffortService {
 	userEntity.setFatherName(userDTO.getFatherName());
 	userEntity.setSpouseName(userDTO.getSpouseName());
 	userEntity.setPassport(userDTO.getPassport());
-	userEntity.setLocation(null==userDTO.getLocation()?null:prepareLocationEntity(userDTO.getLocation()));
+	userEntity.setLocation(null == userDTO.getLocation() ? null : prepareLocationEntity(userDTO.getLocation()));
 	userEntity.setUnitId(userDTO.getUnitId());
 
 	return userEntity;
     }
-    
+
     private LocationMaster prepareLocationEntity(LocationMasterDTO location) {
-	LocationMaster locationMaster=new LocationMaster();
+	LocationMaster locationMaster = new LocationMaster();
 	locationMaster.setCreatedBy(location.getCreatedBy());
 	locationMaster.setCreatedOn(location.getCreatedOn());
 	locationMaster.setId(location.getId());
@@ -391,6 +393,7 @@ public class UserEffortServiceImpl implements UserEffortService {
 	task.setModifiedBy(taskDTO.getModifiedBy());
 	task.setModifiedOn(taskDTO.getModifiedOn());
 	task.setTaskName(taskDTO.getTaskName());
+	task.setId(taskDTO.getId());
 	return task;
     }
 
@@ -403,6 +406,7 @@ public class UserEffortServiceImpl implements UserEffortService {
 	activity.setActivityStatus(activityDTO.getActivityStatus());
 	activity.setModifiedBy(activityDTO.getModifiedBy());
 	activity.setModifiedOn(activityDTO.getModifiedOn());
+	activity.setId(activityDTO.getId());
 	return activity;
     }
 
@@ -479,25 +483,25 @@ public class UserEffortServiceImpl implements UserEffortService {
 	userDTO.setFatherName(userEntity.getFatherName());
 	userDTO.setSpouseName(userEntity.getSpouseName());
 	userDTO.setPassport(userEntity.getPassport());
-	userDTO.setLocation(null!=userEntity.getLocation()?prepareLocationDTO(userEntity.getLocation()):null);
+	userDTO.setLocation(null != userEntity.getLocation() ? prepareLocationDTO(userEntity.getLocation()) : null);
 	userDTO.setUnitId(userEntity.getUnitId());
 
 	return userDTO;
     }
-    
+
     private LocationMasterDTO prepareLocationDTO(LocationMaster location) {
-  	LocationMasterDTO locationMaster=new LocationMasterDTO();
-  	locationMaster.setCreatedBy(location.getCreatedBy());
-  	locationMaster.setCreatedOn(location.getCreatedOn());
-  	locationMaster.setId(location.getId());
-  	locationMaster.setLocationArea(location.getLocationArea());
-  	locationMaster.setLocationCity(location.getLocationCity());
-  	locationMaster.setLocationCountry(location.getLocationCountry());
-  	locationMaster.setLocationPin(location.getLocationPin());
-  	locationMaster.setLocationState(location.getLocationState());
-  	locationMaster.setModifiedBy(location.getModifiedBy());
-  	locationMaster.setModifiedOn(location.getModifiedOn());
-  	return locationMaster;
-      }
+	LocationMasterDTO locationMaster = new LocationMasterDTO();
+	locationMaster.setCreatedBy(location.getCreatedBy());
+	locationMaster.setCreatedOn(location.getCreatedOn());
+	locationMaster.setId(location.getId());
+	locationMaster.setLocationArea(location.getLocationArea());
+	locationMaster.setLocationCity(location.getLocationCity());
+	locationMaster.setLocationCountry(location.getLocationCountry());
+	locationMaster.setLocationPin(location.getLocationPin());
+	locationMaster.setLocationState(location.getLocationState());
+	locationMaster.setModifiedBy(location.getModifiedBy());
+	locationMaster.setModifiedOn(location.getModifiedOn());
+	return locationMaster;
+    }
 
 }

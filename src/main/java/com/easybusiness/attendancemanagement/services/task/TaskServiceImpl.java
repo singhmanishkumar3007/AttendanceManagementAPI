@@ -44,16 +44,18 @@ public class TaskServiceImpl implements TaskService {
 	} catch (Exception e) {
 	    LOGGER.error("exception while getting task by Id {} , {}", taskId, e.getMessage());
 	}
-	return new ResponseEntity<TaskDTO>(prepareTaskDTO(taskEntity), HttpStatus.OK);
+	return (null == taskEntity ? null : new ResponseEntity<TaskDTO>(prepareTaskDTO(taskEntity), HttpStatus.OK));
     }
 
     private TaskDTO prepareTaskDTO(Task taskEntity) {
 	TaskDTO taskDTO = new TaskDTO();
-	taskDTO.setActivity(prepareActivityDTO(taskEntity.getActivity()));
-	taskDTO.setId(taskEntity.getId());
-	taskDTO.setModifiedBy(taskEntity.getModifiedBy());
-	taskDTO.setModifiedOn(taskEntity.getModifiedOn());
-	taskDTO.setTaskName(taskEntity.getTaskName());
+	if (null != taskEntity) {
+	    taskDTO.setActivity(prepareActivityDTO(taskEntity.getActivity()));
+	    taskDTO.setId(taskEntity.getId());
+	    taskDTO.setModifiedBy(taskEntity.getModifiedBy());
+	    taskDTO.setModifiedOn(taskEntity.getModifiedOn());
+	    taskDTO.setTaskName(taskEntity.getTaskName());
+	}
 	return taskDTO;
     }
 
@@ -82,7 +84,7 @@ public class TaskServiceImpl implements TaskService {
 	} catch (Exception e) {
 	    LOGGER.error("exception while getting task by Name {} , {}", taskName, e.getMessage());
 	}
-	return new ResponseEntity<TaskDTO>(prepareTaskDTO(taskEntity), HttpStatus.OK);
+	return (null == taskEntity ? null : new ResponseEntity<TaskDTO>(prepareTaskDTO(taskEntity), HttpStatus.OK));
     }
 
     @Override
@@ -144,12 +146,17 @@ public class TaskServiceImpl implements TaskService {
     @ResponseBody
     public ResponseEntity<List<TaskDTO>> getTaskByActivityId(@PathVariable("activityId") String activityId) {
 
-	List<Task> taskEntityList = taskDao.findTaskByActivityId(Long.parseLong(activityId));
 	List<TaskDTO> taskDTOList = new ArrayList<TaskDTO>();
-	taskEntityList.forEach(taskEntity -> {
-	    TaskDTO taskDTO = prepareTaskDTO(taskEntity);
-	    taskDTOList.add(taskDTO);
-	});
+	try {
+	    List<Task> taskEntityList = taskDao.findTaskByActivityId(Long.parseLong(activityId));
+	    taskEntityList.forEach(taskEntity -> {
+		TaskDTO taskDTO = prepareTaskDTO(taskEntity);
+		taskDTOList.add(taskDTO);
+	    });
+
+	} catch (Exception e) {
+	    LOGGER.error("exception in getting task by activity id {} ", e);
+	}
 	return new ResponseEntity<List<TaskDTO>>(taskDTOList, HttpStatus.OK);
     }
 
@@ -159,12 +166,17 @@ public class TaskServiceImpl implements TaskService {
 
     @ResponseBody
     public ResponseEntity<List<TaskDTO>> getTaskByActivityName(@PathVariable("activityName") String activityName) {
-	List<Task> taskEntityList = taskDao.findTaskByActivityName(activityName);
+
 	List<TaskDTO> taskDTOList = new ArrayList<TaskDTO>();
-	taskEntityList.forEach(taskEntity -> {
-	    TaskDTO taskDTO = prepareTaskDTO(taskEntity);
-	    taskDTOList.add(taskDTO);
-	});
+	try {
+	    List<Task> taskEntityList = taskDao.findTaskByActivityName(activityName);
+	    taskEntityList.forEach(taskEntity -> {
+		TaskDTO taskDTO = prepareTaskDTO(taskEntity);
+		taskDTOList.add(taskDTO);
+	    });
+	} catch (Exception e) {
+	    LOGGER.error("exception in getting task by activity name {} ", e);
+	}
 	return new ResponseEntity<List<TaskDTO>>(taskDTOList, HttpStatus.OK);
     }
 

@@ -1,5 +1,7 @@
 package com.easybusiness.attendancemanagement.services.biometrictransaction;
 
+import static com.easybusiness.attendancemanagement.constant.AttendanceManagementConstant.USER_HOST_SERVER;
+
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,7 +29,10 @@ import com.easybusiness.attendancemanagement.dto.UserDTO;
 import com.easybusiness.attendancemanagement.dto.UserDeviceMapDTO;
 import com.easybusiness.attendancepersistence.biometricytransaction.BiometricTransactionDao;
 import com.easybusiness.attendancepersistence.entity.BiometricTransaction;
+import com.easybusiness.attendancepersistence.entity.Department;
+import com.easybusiness.attendancepersistence.entity.Designation;
 import com.easybusiness.attendancepersistence.entity.LocationMaster;
+import com.easybusiness.attendancepersistence.entity.Organization;
 import com.easybusiness.attendancepersistence.entity.User;
 import com.easybusiness.attendancepersistence.entity.UserDeviceMap;
 import com.easybusiness.attendancepersistence.user.UserDao;
@@ -47,6 +54,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     private static final Logger LOGGER = LoggerFactory.getLogger(BiometricTransactionServiceImpl.class);
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByTransactionId/{tranId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByTransactionId(
@@ -71,6 +79,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserId/{userId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByUserId(@PathVariable("userId") String userId) {
@@ -94,6 +103,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserName/{userName}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByUserName(
@@ -119,6 +129,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserDeviceId/{userDeviceId}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByUserDeviceId(
@@ -146,6 +157,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByDate/{attendanceDate}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByAttendanceDate(
@@ -181,6 +193,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserIdAndDate/{userId}/{attendanceDate}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<BiometricTransactionDTO> getAttendanceByUserIdAndAttendanceDate(
@@ -212,6 +225,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserNameAndDate/{userName}/{attendanceDate}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<BiometricTransactionDTO> getAttendanceByUserNameAndAttendanceDate(
@@ -243,6 +257,7 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
     @RequestMapping(value = "getAttendanceByUserIdAndDate/{userId}/{startAttendanceDate}/{endAttendanceDate}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByUserIdAndAttendanceDateRange(
@@ -284,10 +299,28 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
     }
 
     @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
+    @RequestMapping(value = "saveBiometricTransaction", method = RequestMethod.POST)
+    @ResponseBody
     public ResponseEntity<BiometricTransactionDTO> persistBiometricTransaction(
-	    BiometricTransactionDTO biometricTransactionDTO) {
-	// TODO Auto-generated method stub
-	return null;
+	    @RequestBody BiometricTransactionDTO biometricTransactionDTO) {
+
+	BiometricTransaction biometricTransaction = prepareBiometricTransactionEntity(biometricTransactionDTO);
+	biometricTransactionDao.addBiometricTransaction(biometricTransaction);
+	return new ResponseEntity<BiometricTransactionDTO>(biometricTransactionDTO, HttpStatus.CREATED);
+    }
+
+    private BiometricTransaction prepareBiometricTransactionEntity(BiometricTransactionDTO biometricTransactionDTO) {
+	BiometricTransaction biometricTransaction = new BiometricTransaction();
+	biometricTransaction.setTransactionId(biometricTransactionDTO.getTransactionId());
+	biometricTransaction.setFirstInTime(biometricTransactionDTO.getFirstInTime());
+	biometricTransaction.setInDate(biometricTransactionDTO.getInDate());
+	biometricTransaction.setLastOutTime(biometricTransactionDTO.getLastOutTime());
+	biometricTransaction.setTotalTimeOnFloor(biometricTransactionDTO.getTotalTimeOnFloor());
+	biometricTransaction.setUser(prepareUserEntity(biometricTransactionDTO.getUser()));
+	biometricTransaction.setUserDeviceLocation(biometricTransactionDTO.getUserDeviceLocation());
+	biometricTransaction.setUserDeviceMap(prepareUserDeviceMapEntity(biometricTransactionDTO.getUserDeviceMap()));
+	return biometricTransaction;
     }
 
     @Override
@@ -302,6 +335,68 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
 
     }
 
+    private User prepareUserEntity(UserDTO userDTO) {
+	User userEntity = new User();
+	userEntity.setAlternateEmail(userDTO.getAlternateEmail());
+	userEntity.setDateOfBirth(userDTO.getDateOfBirth());
+	Department dept = new Department();
+	dept.setDeptName(userDTO.getDepartment().getDeptName());
+	dept.setId(userDTO.getDepartment().getId());
+	Organization org = new Organization();
+	org.setId(userDTO.getDepartment().getOrganization().getId());
+	org.setOrgLocation(userDTO.getDepartment().getOrganization().getOrgLocation());
+	org.setOrgName(userDTO.getDepartment().getOrganization().getOrgName());
+	dept.setOrganization(org);
+	userEntity.setDepartment(dept);
+	Designation desg = new Designation();
+	desg.setDesig(userDTO.getDesignation().getDesig());
+	desg.setId(userDTO.getDesignation().getId());
+	userEntity.setDesignation(desg);
+	userEntity.setEmail(userDTO.getEmail());
+	userEntity.setEndDate(userDTO.getEndDate());
+	userEntity.setFirstName(userDTO.getFirstName());
+	userEntity.setFromDate(userDTO.getFromDate());
+	userEntity.setGender(userDTO.getGender());
+	userEntity.setIsEnabled(userDTO.getIsEnabled());
+	userEntity.setLastName(userDTO.getLastName());
+	userEntity.setMobile(userDTO.getMobile());
+	userEntity.setModifiedBy(userDTO.getModifiedBy());
+	userEntity.setModifiedOn(userDTO.getModifiedOn());
+	userEntity.setOrganization(org);
+	userEntity.setPassword(userDTO.getPassword());
+	userEntity.setTypeOfEmployment(userDTO.getTypeOfEmployment());
+	userEntity.setUserName(userDTO.getUserName());
+	userEntity.setId(userDTO.getId());
+
+	userEntity.setPermAddr(userDTO.getPermAddr());
+	userEntity.setState(userDTO.getState());
+	userEntity.setCity(userDTO.getCity());
+	userEntity.setCountry(userDTO.getCountry());
+	userEntity.setZip(userDTO.getZip());
+	userEntity.setFatherName(userDTO.getFatherName());
+	userEntity.setSpouseName(userDTO.getSpouseName());
+	userEntity.setPassport(userDTO.getPassport());
+	userEntity.setLocation(null == userDTO.getLocation() ? null : prepareLocationEntity(userDTO.getLocation()));
+	userEntity.setUnitId(userDTO.getUnitId());
+
+	return userEntity;
+    }
+
+    private LocationMaster prepareLocationEntity(LocationMasterDTO location) {
+	LocationMaster locationMaster = new LocationMaster();
+	locationMaster.setCreatedBy(location.getCreatedBy());
+	locationMaster.setCreatedOn(location.getCreatedOn());
+	locationMaster.setId(location.getId());
+	locationMaster.setLocationArea(location.getLocationArea());
+	locationMaster.setLocationCity(location.getLocationCity());
+	locationMaster.setLocationCountry(location.getLocationCountry());
+	locationMaster.setLocationPin(location.getLocationPin());
+	locationMaster.setLocationState(location.getLocationState());
+	locationMaster.setModifiedBy(location.getModifiedBy());
+	locationMaster.setModifiedOn(location.getModifiedOn());
+	return locationMaster;
+    }
+
     private UserDeviceMapDTO prepareUserDeviceMapDTO(UserDeviceMap userDeviceMapEntity) {
 	UserDeviceMapDTO userDeviceMapDTO = new UserDeviceMapDTO();
 	userDeviceMapDTO.setCreatedBy(userDeviceMapEntity.getCreatedBy());
@@ -312,6 +407,19 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
 	userDeviceMapDTO.setModifiedOn(userDeviceMapEntity.getModifiedOn());
 	userDeviceMapDTO.setUser(prepareUserDTO(userDeviceMapEntity.getUser()));
 	return userDeviceMapDTO;
+
+    }
+
+    private UserDeviceMap prepareUserDeviceMapEntity(UserDeviceMapDTO userDeviceMapDto) {
+	UserDeviceMap userDeviceMap = new UserDeviceMap();
+	userDeviceMap.setCreatedBy(userDeviceMapDto.getCreatedBy());
+	userDeviceMap.setCreatedOn(userDeviceMapDto.getCreatedOn());
+	userDeviceMap.setDeviceId(userDeviceMapDto.getDeviceId());
+	userDeviceMap.setId(userDeviceMapDto.getId());
+	userDeviceMap.setModifiedBy(userDeviceMapDto.getModifiedBy());
+	userDeviceMap.setModifiedOn(userDeviceMapDto.getModifiedOn());
+	userDeviceMap.setUser(prepareUserEntity(userDeviceMapDto.getUser()));
+	return userDeviceMap;
 
     }
 
@@ -369,25 +477,25 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
 	userDTO.setFatherName(userEntity.getFatherName());
 	userDTO.setSpouseName(userEntity.getSpouseName());
 	userDTO.setPassport(userEntity.getPassport());
-	userDTO.setLocation(null!=userEntity.getLocation()?prepareLocationDTO(userEntity.getLocation()):null);
+	userDTO.setLocation(null != userEntity.getLocation() ? prepareLocationDTO(userEntity.getLocation()) : null);
 	userDTO.setUnitId(userEntity.getUnitId());
 
 	return userDTO;
     }
-    
+
     private LocationMasterDTO prepareLocationDTO(LocationMaster location) {
-  	LocationMasterDTO locationMaster=new LocationMasterDTO();
-  	locationMaster.setCreatedBy(location.getCreatedBy());
-  	locationMaster.setCreatedOn(location.getCreatedOn());
-  	locationMaster.setId(location.getId());
-  	locationMaster.setLocationArea(location.getLocationArea());
-  	locationMaster.setLocationCity(location.getLocationCity());
-  	locationMaster.setLocationCountry(location.getLocationCountry());
-  	locationMaster.setLocationPin(location.getLocationPin());
-  	locationMaster.setLocationState(location.getLocationState());
-  	locationMaster.setModifiedBy(location.getModifiedBy());
-  	locationMaster.setModifiedOn(location.getModifiedOn());
-  	return locationMaster;
-      }
+	LocationMasterDTO locationMaster = new LocationMasterDTO();
+	locationMaster.setCreatedBy(location.getCreatedBy());
+	locationMaster.setCreatedOn(location.getCreatedOn());
+	locationMaster.setId(location.getId());
+	locationMaster.setLocationArea(location.getLocationArea());
+	locationMaster.setLocationCity(location.getLocationCity());
+	locationMaster.setLocationCountry(location.getLocationCountry());
+	locationMaster.setLocationPin(location.getLocationPin());
+	locationMaster.setLocationState(location.getLocationState());
+	locationMaster.setModifiedBy(location.getModifiedBy());
+	locationMaster.setModifiedOn(location.getModifiedOn());
+	return locationMaster;
+    }
 
 }
