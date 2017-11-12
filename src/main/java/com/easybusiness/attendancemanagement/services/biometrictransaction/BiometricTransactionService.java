@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.easybusiness.attendancemanagement.dto.BiometricTransactionDTO;
+import com.easybusiness.attendancemanagement.dto.SaveOrEditBiometricTransactionRequestBody;
 
 public interface BiometricTransactionService {
 
@@ -33,5 +34,8 @@ public interface BiometricTransactionService {
 
     public ResponseEntity<List<BiometricTransactionDTO>> getAttendanceByUserIdAndAttendanceDateRange(String userId,
 	    String startAttendanceDate, String endAttendanceDate);
+
+    public ResponseEntity<BiometricTransactionDTO> saveOrEditBiometricTransaction(
+	    SaveOrEditBiometricTransactionRequestBody saveOrEditBiometricTransactionRequestBody);
 
 }

@@ -25,6 +25,7 @@ import com.easybusiness.attendancemanagement.dto.DepartmentDTO;
 import com.easybusiness.attendancemanagement.dto.DesignationDTO;
 import com.easybusiness.attendancemanagement.dto.LocationMasterDTO;
 import com.easybusiness.attendancemanagement.dto.OrganizationDTO;
+import com.easybusiness.attendancemanagement.dto.SaveOrEditBiometricTransactionRequestBody;
 import com.easybusiness.attendancemanagement.dto.UserDTO;
 import com.easybusiness.attendancemanagement.dto.UserDeviceMapDTO;
 import com.easybusiness.attendancepersistence.biometricytransaction.BiometricTransactionDao;
@@ -308,6 +309,35 @@ public class BiometricTransactionServiceImpl implements BiometricTransactionServ
 	BiometricTransaction biometricTransaction = prepareBiometricTransactionEntity(biometricTransactionDTO);
 	biometricTransactionDao.addBiometricTransaction(biometricTransaction);
 	return new ResponseEntity<BiometricTransactionDTO>(biometricTransactionDTO, HttpStatus.CREATED);
+    }
+
+    @Override
+    @CrossOrigin(origins = USER_HOST_SERVER)
+    @RequestMapping(value = "saveOrEditBiometricTransaction", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<BiometricTransactionDTO> saveOrEditBiometricTransaction(
+	    @RequestBody SaveOrEditBiometricTransactionRequestBody biometricTransactionRequestBody) {
+
+	BiometricTransactionDTO biometricTransactionDTO = prepareBiometricTransactionDTO(
+		biometricTransactionRequestBody);
+	BiometricTransaction biometricTransaction = prepareBiometricTransactionEntity(biometricTransactionDTO);
+	biometricTransactionDao.addBiometricTransaction(biometricTransaction);
+	return new ResponseEntity<BiometricTransactionDTO>(biometricTransactionDTO, HttpStatus.CREATED);
+    }
+
+    private BiometricTransactionDTO prepareBiometricTransactionDTO(
+	    SaveOrEditBiometricTransactionRequestBody biometricTransactionRequestBody) {
+	BiometricTransactionDTO biometricTransactionDTO = new BiometricTransactionDTO();
+	biometricTransactionDTO.setFirstInTime(biometricTransactionRequestBody.getFirstInTime());
+	biometricTransactionDTO.setInDate(biometricTransactionRequestBody.getInDate());
+	biometricTransactionDTO.setLastOutTime(biometricTransactionRequestBody.getLastOutTime());
+	biometricTransactionDTO.setTotalTimeOnFloor(biometricTransactionRequestBody.getTotalTimeOnFloor());
+	biometricTransactionDTO.setUser(
+		prepareUserDTO(userDao.findUserById(Long.parseLong(biometricTransactionRequestBody.getUserId()))));
+	biometricTransactionDTO.setUserDeviceLocation(biometricTransactionRequestBody.getUserDeviceLocation());
+	biometricTransactionDTO.setUserDeviceMap(prepareUserDeviceMapDTO(userDeviceMapDao
+		.findByUser(userDao.findUserById(Long.parseLong(biometricTransactionRequestBody.getUserId()))).get(0)));
+	return biometricTransactionDTO;
     }
 
     private BiometricTransaction prepareBiometricTransactionEntity(BiometricTransactionDTO biometricTransactionDTO) {
